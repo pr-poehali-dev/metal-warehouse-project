@@ -96,7 +96,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 metal-texture">
+      <header className="sticky top-0 z-50 w-full border-b border-border/30 bg-background backdrop-blur-sm supports-[backdrop-filter]:bg-background/90 metal-texture gold-accent-stripe">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             <Icon name="Factory" size={32} className="text-accent" />
@@ -116,19 +116,17 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary via-primary to-secondary overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.08) 35px, rgba(255,255,255,.08) 70px), linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)',
-          }} />
-        </div>
-        <div className="absolute top-10 left-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
-        <div className="absolute top-10 right-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
-        <div className="absolute bottom-10 left-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
-        <div className="absolute bottom-10 right-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
+      <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary via-primary to-secondary overflow-hidden metal-perforated">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-secondary/90" />
+        <div className="absolute top-8 left-1/4 w-2 h-2 rounded-full rivet" />
+        <div className="absolute top-8 right-1/4 w-2 h-2 rounded-full rivet" />
+        <div className="absolute bottom-8 left-1/3 w-2 h-2 rounded-full rivet" />
+        <div className="absolute bottom-8 right-1/3 w-2 h-2 rounded-full rivet" />
+        <div className="absolute top-1/2 left-8 w-2 h-2 rounded-full rivet" />
+        <div className="absolute top-1/2 right-8 w-2 h-2 rounded-full rivet" />
         <div className="container relative z-10">
           <div className="max-w-3xl">
-            <Badge className="mb-4 bg-accent text-accent-foreground font-bold metal-shine">ПРОИЗВОДИТЕЛЬ № 1 В РОССИИ</Badge>
+            <Badge className="mb-4 bg-accent text-accent-foreground font-bold metal-shine shadow-lg">ПРОИЗВОДИТЕЛЬ № 1 В РОССИИ</Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
               Быстровозводимые ангары от производителя
             </h1>
@@ -149,14 +147,14 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="advantages" className="py-16 bg-muted/50 metal-texture">
+      <section id="advantages" className="py-16 bg-card metal-texture">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Почему выбирают нас</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((adv, idx) => (
-              <Card key={idx} className="hover:shadow-lg transition-all hover:scale-105 metal-texture border-border/50">
+              <Card key={idx} className="hover:shadow-xl transition-all hover:scale-[1.02] border-border/30 bg-card">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 metal-shine">
+                  <div className="w-12 h-12 rounded-lg bg-accent/15 flex items-center justify-center mb-4 metal-shine shadow-sm">
                     <Icon name={adv.icon} size={24} className="text-accent" />
                   </div>
                   <CardTitle className="text-xl">{adv.title}</CardTitle>
@@ -179,15 +177,15 @@ const Index = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {hangars.map((hangar) => (
-              <Card key={hangar.id} className="overflow-hidden hover:shadow-2xl transition-all hover:scale-105 group metal-texture border-border/50">
+              <Card key={hangar.id} className="overflow-hidden hover:shadow-2xl transition-all hover:scale-[1.02] group border-border/30 bg-card">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={hangar.image} 
                     alt={hangar.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <Badge className="absolute top-4 right-4 bg-accent font-bold metal-shine">{hangar.specs.price}</Badge>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <Badge className="absolute top-4 right-4 bg-accent font-bold metal-shine shadow-lg">{hangar.specs.price}</Badge>
                 </div>
                 <CardHeader>
                   <CardTitle className="text-2xl">{hangar.title}</CardTitle>
@@ -230,12 +228,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="py-16 bg-muted/50 metal-texture">
+      <section id="portfolio" className="py-16 bg-card metal-texture">
         <div className="container">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Реализованные проекты</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolio.map((project, idx) => (
-              <Card key={idx} className="hover:shadow-lg transition-all hover:scale-105 metal-texture border-border/50">
+              <Card key={idx} className="hover:shadow-xl transition-all hover:scale-[1.02] border-border/30 bg-card">
                 <CardHeader>
                   <Badge className="w-fit mb-2">{project.type}</Badge>
                   <CardTitle className="text-lg">{project.title}</CardTitle>
@@ -259,7 +257,7 @@ const Index = () => {
             </p>
           </div>
           
-          <Card className="shadow-2xl metal-texture border-border/50">
+          <Card className="shadow-2xl border-border/30 bg-card">
             <CardHeader>
               <CardTitle>Параметры ангара</CardTitle>
               <CardDescription>Укажите желаемые размеры и выберите тип конструкции</CardDescription>
@@ -378,15 +376,15 @@ const Index = () => {
                 </TabsContent>
               </Tabs>
 
-              <div className="mt-8 p-6 bg-accent/20 rounded-lg border-2 border-accent metal-texture">
+              <div className="mt-8 p-6 bg-accent/15 rounded-lg border border-accent/30 shadow-inner">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm text-muted-foreground mb-1 font-medium">Примерная стоимость:</p>
-                    <p className="text-4xl font-bold text-accent">
+                    <p className="text-4xl font-bold text-accent drop-shadow-sm">
                       {calculatePrice().toLocaleString('ru-RU')} ₽
                     </p>
                   </div>
-                  <Icon name="Calculator" size={48} className="text-accent/40" />
+                  <Icon name="Calculator" size={48} className="text-accent/30" />
                 </div>
                 <p className="text-xs text-muted-foreground mt-4">
                   * Окончательная стоимость определяется после разработки проекта
@@ -397,11 +395,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-16 bg-gradient-to-br from-primary via-primary to-secondary metal-texture relative">
-        <div className="absolute top-10 left-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
-        <div className="absolute top-10 right-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
-        <div className="absolute bottom-10 left-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
-        <div className="absolute bottom-10 right-10 w-3 h-3 rounded-full bg-muted-foreground/30 rivet" />
+      <section id="contacts" className="py-16 bg-gradient-to-br from-primary via-primary to-secondary metal-perforated relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-secondary/90" />
+        <div className="absolute top-8 left-1/4 w-2 h-2 rounded-full rivet" />
+        <div className="absolute top-8 right-1/4 w-2 h-2 rounded-full rivet" />
+        <div className="absolute bottom-8 left-1/3 w-2 h-2 rounded-full rivet" />
+        <div className="absolute bottom-8 right-1/3 w-2 h-2 rounded-full rivet" />
         <div className="container max-w-4xl relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Оставить заявку</h2>
@@ -410,7 +409,7 @@ const Index = () => {
             </p>
           </div>
           
-          <Card className="metal-texture border-border/50">
+          <Card className="border-border/30 bg-card shadow-xl">
             <CardContent className="pt-6">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -452,7 +451,7 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="py-12 bg-primary text-white metal-texture border-t border-border/30">
+      <footer className="py-12 bg-primary text-white border-t border-border/20">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
